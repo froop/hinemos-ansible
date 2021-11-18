@@ -1,0 +1,39 @@
+---
+- hosts: hinemosagents
+  become: yes
+  connection: local
+
+  vars:
+    git_url: https://github.com/hinemos/hinemos/releases/download
+    MAJOR_VERSION: "6.2"
+    MINOR_VERSION: "2"
+    BUILD: "1"
+    OS_TYPE: "el"
+
+  tasks:
+    - name: Install packages
+      yum:
+        state: latest
+        name:
+          - unzip
+          - java
+          - net-snmp
+          - net-snmp-utils
+
+    - name: Get Hinemos RPM File
+      get_url:
+        url: "{{ item }}"
+        dest: /tmp/
+      with_items: 
+        - "{{ git_url }}/v{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}/hinemos-{{ MAJOR_VERSION }}-agent-{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}-{{ BUILD }}.{{ OS_TYPE }}.noarch.rpm"
+
+    - name: Install Hinemos Agent
+      yum:
+        name: /tmp/hinemos-{{ MAJOR_VERSION }}-agent-{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}-{{ BUILD }}.{{ OS_TYPE }}.noarch.rpm
+        state: present
+
+    - name: Start Hinemos Agent Service
+      service:
+        name: hinemos_agent
+        state: started
+        enabled: yes
