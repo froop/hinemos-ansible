@@ -1,4 +1,13 @@
 ---
+  - name: Disable SELinux
+    selinux:
+      state: disabled
+    register: result
+
+  - name: Reboot
+    reboot:
+    when: result.changed
+
   - name: Get Hinemos RPM File
     get_url:
       url: "{{ git_url }}/v{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}/{{ rpm_file }}"
