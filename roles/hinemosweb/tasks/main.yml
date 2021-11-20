@@ -1,0 +1,34 @@
+# 参考:
+# AnsibleでHinemosをインストールしてみた。 - てんこ
+# https://tenko.hatenablog.jp/entry/2020/07/18/151757
+---
+  - name: Install packages
+    yum:
+      state: latest
+      name:
+        - unzip
+        - vim-common
+        - java
+        - net-snmp
+        - net-snmp-utils
+
+  - name: Get Hinemos RPM File
+    get_url:
+      url: "{{ git_url }}/v{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}/{{ rpm_file }}"
+      dest: /tmp
+
+  - name: Install Hinemos Web Client
+    yum:
+      name: /tmp/{{ rpm_file }}
+      state: present
+
+  - name: Start Hinemos Web Client Service
+    service:
+      name: hinemos_web
+      state: started
+      enabled: yes
+
+  - name: Hinemos Web Client Listen Check (tcp 80)
+    wait_for:
+      port: 80
+      delay: 10

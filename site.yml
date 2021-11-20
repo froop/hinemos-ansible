@@ -1,4 +1,4 @@
 ---
 - import_playbook: hinemosmanager.yml
 - import_playbook: hinemosagents.yml
-#- import_playbook: hinemosweb.yml
+- import_playbook: hinemosweb.yml
