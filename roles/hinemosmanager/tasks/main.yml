@@ -1,16 +1,9 @@
-# 参考:
-# AnsibleでHinemosをインストールしてみた。 - てんこ
-# https://tenko.hatenablog.jp/entry/2020/07/18/151757
 ---
   - name: Install packages
     yum:
       state: latest
       name:
-        - unzip
         - vim-common
-        - java
-        - net-snmp
-        - net-snmp-utils
 
   - name: Disable SELinux
     selinux:

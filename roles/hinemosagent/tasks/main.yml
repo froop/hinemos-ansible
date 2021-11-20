@@ -1,13 +1,4 @@
 ---
-  - name: Install packages
-    yum:
-      state: latest
-      name:
-        - unzip
-        - java
-        - net-snmp
-        - net-snmp-utils
-
   - name: Get Hinemos RPM File
     get_url:
       url: "{{ git_url }}/v{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}/{{ rpm_file }}"

@@ -1,0 +1,9 @@
+---
+  - name: Install packages
+    yum:
+      state: latest
+      name:
+        - unzip
+        - java
+        - net-snmp
+        - net-snmp-utils
