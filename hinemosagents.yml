@@ -5,8 +5,7 @@
   roles:
     - hinemosagent
   vars:
+    MAJOR_VERSION: 6.2
+    MINOR_VERSION: 2
+    rpm_file: hinemos-{{ MAJOR_VERSION }}-agent-{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}-1.el.noarch.rpm
     git_url: https://github.com/hinemos/hinemos/releases/download
-    MAJOR_VERSION: "6.2"
-    MINOR_VERSION: "2"
-    BUILD: "1"
-    OS_TYPE: "el"

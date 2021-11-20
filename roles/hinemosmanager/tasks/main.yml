@@ -23,14 +23,12 @@
 
   - name: Get Hinemos RPM File
     get_url:
-      url: "{{ item }}"
-      dest: /tmp/
-    with_items: 
-      - "{{ git_url }}/v{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}/hinemos-{{ MAJOR_VERSION }}-manager-{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}-{{ BUILD }}.{{ OS_TYPE }}.x86_64.rpm"
+      url: "{{ git_url }}/v{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}/{{ rpm_file }}"
+      dest: /tmp
 
   - name: Install Hinemos Manager
     yum:
-      name: /tmp/hinemos-{{ MAJOR_VERSION }}-manager-{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}-{{ BUILD }}.{{ OS_TYPE }}.x86_64.rpm
+      name: /tmp/{{ rpm_file }}
       state: present
 
   - name: Start Hinemos Manager Service
