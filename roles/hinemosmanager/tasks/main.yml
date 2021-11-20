@@ -1,0 +1,45 @@
+# 参考:
+# AnsibleでHinemosをインストールしてみた。 - てんこ
+# https://tenko.hatenablog.jp/entry/2020/07/18/151757
+---
+  - name: Install packages
+    yum:
+      state: latest
+      name:
+        - unzip
+        - vim-common
+        - java
+        - net-snmp
+        - net-snmp-utils
+
+  - name: Disable SELinux
+    selinux:
+      state: disabled
+    register: result
+
+  - name: Reboot
+    reboot:
+    when: result.changed
+
+  - name: Get Hinemos RPM File
+    get_url:
+      url: "{{ item }}"
+      dest: /tmp/
+    with_items: 
+      - "{{ git_url }}/v{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}/hinemos-{{ MAJOR_VERSION }}-manager-{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}-{{ BUILD }}.{{ OS_TYPE }}.x86_64.rpm"
+
+  - name: Install Hinemos Manager
+    yum:
+      name: /tmp/hinemos-{{ MAJOR_VERSION }}-manager-{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}-{{ BUILD }}.{{ OS_TYPE }}.x86_64.rpm
+      state: present
+
+  - name: Start Hinemos Manager Service
+    service:
+      name: hinemos_manager
+      state: started
+      enabled: yes
+
+  - name: Hinemos Manager Listen Check(tcp8080)
+    wait_for:
+      port: 8080
+      delay: 10
