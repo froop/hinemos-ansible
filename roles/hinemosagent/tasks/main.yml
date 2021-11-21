@@ -1,15 +1,15 @@
 ---
-- name: Get Hinemos RPM File
+- name: Get package
   get_url:
     url: "{{ rpm_url }}/{{ rpm_file }}"
     dest: /tmp
 
-- name: Install Hinemos Agent
+- name: Install package
   yum:
     name: /tmp/{{ rpm_file }}
     state: present
 
-- name: Start Hinemos Agent Service
+- name: Start service
   service:
     name: hinemos_agent
     state: started

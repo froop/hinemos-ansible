@@ -1,5 +1,5 @@
 ---
-- name: Install packages
+- name: Install dependencies
   yum:
     state: latest
     name:
@@ -14,23 +14,23 @@
   reboot:
   when: result.changed
 
-- name: Get Hinemos RPM File
+- name: Get package
   get_url:
     url: "{{ rpm_url }}/{{ rpm_file }}"
     dest: /tmp
 
-- name: Install Hinemos Web Client
+- name: Install package
   yum:
     name: /tmp/{{ rpm_file }}
     state: present
 
-- name: Start Hinemos Web Client Service
+- name: Start service
   service:
     name: hinemos_web
     state: started
     enabled: yes
 
-- name: Hinemos Web Client Listen Check (tcp 80)
+- name: Wait starting
   wait_for:
     port: 80
     delay: 10
