@@ -4,6 +4,4 @@
     state: latest
     name:
       - unzip
-      - java-1.8.0-openjdk
-      - net-snmp
-      - net-snmp-utils
+      #- net-snmp-utils

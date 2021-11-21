@@ -1,4 +1,11 @@
 ---
+- name: Install dependencies
+  yum:
+    state: latest
+    name:
+      - java-1.8.0-openjdk
+      - net-snmp
+
 - name: Get package
   get_url:
     url: "{{ rpm_url }}/{{ rpm_file }}"
