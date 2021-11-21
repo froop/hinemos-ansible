@@ -16,7 +16,7 @@
 
   - name: Get Hinemos RPM File
     get_url:
-      url: "{{ git_url }}/v{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}/{{ rpm_file }}"
+      url: "{{ rpm_url }}/{{ rpm_file }}"
       dest: /tmp
 
   - name: Install Hinemos Manager
