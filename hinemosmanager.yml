@@ -4,6 +4,7 @@
   connection: local
   roles:
     - common
+    - disableselinux
     - hinemosmanager
   vars:
     MAJOR_VERSION: 6.2
