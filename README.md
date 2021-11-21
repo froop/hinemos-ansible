@@ -8,9 +8,10 @@ yum -y install ansible git
 
 git clone https://github.com/froop/hinemos-ansible.git
 cd hinemos-ansible
-ansible-playbook -i hinemosmanager hinemosmanager.yml
-ansible-playbook -i hinemosagents hinemosagents.yml
-ansible-playbook -i hinemosweb hinemosweb.yml
+ansible-playbook -i hosts/allinone site.yml
+#ansible-playbook -i hosts/allinone hinemosmanager.yml
+#ansible-playbook -i hosts/allinone hinemosagents.yml
+#ansible-playbook -i hosts/allinone hinemosweb.yml
 ```
 
 ## 参考
