@@ -8,5 +8,5 @@
   vars:
     MAJOR_VERSION: 6.2
     MINOR_VERSION: 2
+    rpm_url: https://github.com/hinemos/hinemos/releases/download/v{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}
     rpm_file: hinemos-{{ MAJOR_VERSION }}-web-{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}-1.el7.x86_64.rpm
-    git_url: https://github.com/hinemos/hinemos/releases/download 
