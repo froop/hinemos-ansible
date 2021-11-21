@@ -5,6 +5,15 @@
     name:
       - java-1.8.0-openjdk
       - net-snmp
+      - rsyslog
+      - hostname
+      - sudo
+
+- name: Start rsyslog
+  service:
+    name: rsyslog
+    state: started
+    enabled: yes
 
 - name: Get package
   get_url:

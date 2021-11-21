@@ -5,3 +5,6 @@
     name:
       - unzip
       #- net-snmp-utils
+      #- sysstat
+      #- tcpdump
+      #- lsof
