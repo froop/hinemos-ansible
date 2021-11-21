@@ -9,5 +9,7 @@
   vars:
     MAJOR_VERSION: 6.2
     MINOR_VERSION: 2
+    BUILD: 1
+    OS_TYPE: el7
     rpm_url: https://github.com/hinemos/hinemos/releases/download/v{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}
-    rpm_file: hinemos-{{ MAJOR_VERSION }}-manager-{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}-1.el7.x86_64.rpm
+    rpm_file: hinemos-{{ MAJOR_VERSION }}-manager-{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}-{{ BUILD }}.{{ OS_TYPE }}.x86_64.rpm
