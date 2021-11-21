@@ -1,36 +1,36 @@
 ---
-  - name: Install packages
-    yum:
-      state: latest
-      name:
-        - vim-common
+- name: Install packages
+  yum:
+    state: latest
+    name:
+      - vim-common
 
-  - name: Disable SELinux
-    selinux:
-      state: disabled
-    register: result
+- name: Disable SELinux
+  selinux:
+    state: disabled
+  register: result
 
-  - name: Reboot
-    reboot:
-    when: result.changed
+- name: Reboot
+  reboot:
+  when: result.changed
 
-  - name: Get Hinemos RPM File
-    get_url:
-      url: "{{ rpm_url }}/{{ rpm_file }}"
-      dest: /tmp
+- name: Get Hinemos RPM File
+  get_url:
+    url: "{{ rpm_url }}/{{ rpm_file }}"
+    dest: /tmp
 
-  - name: Install Hinemos Manager
-    yum:
-      name: /tmp/{{ rpm_file }}
-      state: present
+- name: Install Hinemos Manager
+  yum:
+    name: /tmp/{{ rpm_file }}
+    state: present
 
-  - name: Start Hinemos Manager Service
-    service:
-      name: hinemos_manager
-      state: started
-      enabled: yes
+- name: Start Hinemos Manager Service
+  service:
+    name: hinemos_manager
+    state: started
+    enabled: yes
 
-  - name: Hinemos Manager Listen Check(tcp8080)
-    wait_for:
-      port: 8080
-      delay: 10
+- name: Hinemos Manager Listen Check(tcp8080)
+  wait_for:
+    port: 8080
+    delay: 10
