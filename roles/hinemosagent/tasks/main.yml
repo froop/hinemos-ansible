@@ -15,14 +15,9 @@
     state: started
     enabled: yes
 
-- name: Get package
-  get_url:
-    url: "{{ rpm_url }}/{{ rpm_file }}"
-    dest: /tmp
-
 - name: Install package
   yum:
-    name: /tmp/{{ rpm_file }}
+    name: "{{ rpm_url }}/{{ rpm_file }}"
     state: present
     disable_gpg_check: yes
 
