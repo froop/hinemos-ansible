@@ -18,6 +18,7 @@
   yum:
     name: /tmp/{{ rpm_file }}
     state: present
+    disable_gpg_check: yes
 
 - name: Start service
   service:
