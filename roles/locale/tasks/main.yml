@@ -8,5 +8,5 @@
   changed_when: false
 
 - name: Set locale
-  command: localectl set-locale LANG=ja_JP.utf8
-  when: "'LANG=ja_JP.utf8' not in localectl_result.stdout"
+  command: localectl set-locale LANG={{ LOCALE }}
+  when: LOCALE not in localectl_result.stdout

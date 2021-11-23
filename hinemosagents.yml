@@ -7,6 +7,7 @@
     - locale
     - hinemosagent
   vars:
+    LOCALE: ja_JP.utf8
     MAJOR_VERSION: 6.2
     MINOR_VERSION: 2
     BUILD: 1
@@ -14,5 +15,5 @@
     rpm_url: https://github.com/hinemos/hinemos/releases/download/v{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}
     rpm_file: hinemos-{{ MAJOR_VERSION }}-agent-{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}-{{ BUILD }}.{{ OS_TYPE }}.noarch.rpm
   environment:
-    LANG: ja_JP.utf8
+    LANG: "{{ LOCALE }}"
     HINEMOS_MANAGER: 127.0.0.1

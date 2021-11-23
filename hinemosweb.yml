@@ -8,6 +8,7 @@
     - disableselinux
     - hinemosweb
   vars:
+    LOCALE: ja_JP.utf8
     MAJOR_VERSION: 6.2
     MINOR_VERSION: 2
     BUILD: 1
@@ -15,4 +16,4 @@
     rpm_url: https://github.com/hinemos/hinemos/releases/download/v{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}
     rpm_file: hinemos-{{ MAJOR_VERSION }}-web-{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}-{{ BUILD }}.{{ OS_TYPE }}.x86_64.rpm
   environment:
-    LANG: ja_JP.utf8
+    LANG: "{{ LOCALE }}"
