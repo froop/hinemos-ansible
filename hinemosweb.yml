@@ -4,6 +4,7 @@
   connection: local
   roles:
     - common
+    - locale
     - disableselinux
     - hinemosweb
   vars:
@@ -13,3 +14,5 @@
     OS_TYPE: el8
     rpm_url: https://github.com/hinemos/hinemos/releases/download/v{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}
     rpm_file: hinemos-{{ MAJOR_VERSION }}-web-{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}-{{ BUILD }}.{{ OS_TYPE }}.x86_64.rpm
+  environment:
+    LANG: ja_JP.utf8

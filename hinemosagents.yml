@@ -4,6 +4,7 @@
   connection: local
   roles:
     - common
+    - locale
     - hinemosagent
   vars:
     MAJOR_VERSION: 6.2
@@ -13,4 +14,5 @@
     rpm_url: https://github.com/hinemos/hinemos/releases/download/v{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}
     rpm_file: hinemos-{{ MAJOR_VERSION }}-agent-{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}-{{ BUILD }}.{{ OS_TYPE }}.noarch.rpm
   environment:
+    LANG: ja_JP.utf8
     HINEMOS_MANAGER: 127.0.0.1

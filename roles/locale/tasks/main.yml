@@ -1,0 +1,12 @@
+# 参考: Ansibleのcommandモジュールで冪等性を担保する
+# https://goodbyegangster.hatenablog.com/entry/2019/05/02/053303
+---
+- name: Chack locale
+  command: localectl status
+  register: localectl_result
+  check_mode: no
+  changed_when: false
+
+- name: Set locale
+  command: localectl set-locale LANG=ja_JP.utf8
+  when: "'LANG=ja_JP.utf8' not in localectl_result.stdout"
