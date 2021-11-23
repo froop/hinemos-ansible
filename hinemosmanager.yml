@@ -8,8 +8,6 @@
     - disableselinux
     - hinemosmanager
   vars:
-    TIMEZONE: Asia/Tokyo
-    LOCALE: ja_JP.utf8
     BUILD: 1
     OS_TYPE: el8
     rpm_file: hinemos-{{ MAJOR_VERSION }}-manager-{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}-{{ BUILD }}.{{ OS_TYPE }}.x86_64.rpm

@@ -8,6 +8,8 @@ localhost
 localhost
 
 [all:vars]
+TIMEZONE=Asia/Tokyo
+LOCALE=ja_JP.utf8
 MAJOR_VERSION=6.2
 MINOR_VERSION=2
 rpm_url=https://github.com/hinemos/hinemos/releases/download/v{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}

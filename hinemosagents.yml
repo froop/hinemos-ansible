@@ -7,8 +7,6 @@
     - locale
     - hinemosagent
   vars:
-    TIMEZONE: Asia/Tokyo
-    LOCALE: ja_JP.utf8
     BUILD: 1
     OS_TYPE: el
     MANAGER_ADDRESS: 127.0.0.1
