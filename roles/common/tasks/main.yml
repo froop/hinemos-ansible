@@ -1,4 +1,8 @@
 ---
+- name: Set timezone
+  timezone:
+    name: Asia/Tokyo
+
 - name: Install packages
   yum:
     state: latest
