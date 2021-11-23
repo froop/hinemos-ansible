@@ -9,12 +9,9 @@
   vars:
     TIMEZONE: Asia/Tokyo
     LOCALE: ja_JP.utf8
-    MAJOR_VERSION: 6.2
-    MINOR_VERSION: 2
     BUILD: 1
     OS_TYPE: el
     MANAGER_ADDRESS: 127.0.0.1
-    rpm_url: https://github.com/hinemos/hinemos/releases/download/v{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}
     rpm_file: hinemos-{{ MAJOR_VERSION }}-agent-{{ MAJOR_VERSION }}.{{ MINOR_VERSION }}-{{ BUILD }}.{{ OS_TYPE }}.noarch.rpm
   environment:
     LANG: "{{ LOCALE }}"
