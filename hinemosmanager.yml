@@ -1,7 +1,6 @@
 ---
 - hosts: hinemosmanager
   become: yes
-  connection: local
   roles:
     - common
     - locale

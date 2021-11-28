@@ -1,7 +1,6 @@
 ---
 - hosts: hinemosagents
   become: yes
-  connection: local
   roles:
     - common
     - locale

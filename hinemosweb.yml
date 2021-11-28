@@ -1,7 +1,6 @@
 ---
 - hosts: hinemosweb
   become: yes
-  connection: local
   roles:
     - common
     - locale

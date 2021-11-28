@@ -1,11 +1,11 @@
 [hinemosmanager]
-localhost
+localhost ansible_connection=local
 
 [hinemosagents]
-localhost
+localhost ansible_connection=local
 
 [hinemosweb]
-localhost
+localhost ansible_connection=local
 
 [all:vars]
 TIMEZONE=Asia/Tokyo
